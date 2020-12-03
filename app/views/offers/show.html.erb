@@ -3,5 +3,5 @@
 <p><%= @offer.description %></p>
 
 
-<%= link_to 'Book', '#' %>
+<%= link_to 'Book', new_offer_booking_path(@offer) %>
 <%= link_to 'Delete offer', offer_path(@offer.id), method: :delete, data: { confirm: "Are you sure?" } %>
