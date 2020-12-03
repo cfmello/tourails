@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :fetch_offer, except: :show
+  before_action :fetch_offer, except: %i[show destroy]
 
   # def index
   #   @booking = Booking.where(user: current_user).order(:date_start, :asc)
@@ -41,9 +41,17 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  # def destroy
-  #   booking = Booking.find(params[:id])
-  # end
+  def destroy
+    booking = Booking.find(params[:id])
+    booking.deleted = true
+    if booking.save
+      flash[:success] = "Booking was successfully updated"
+      redirect_to offers_path
+    else
+      flash[:error] = "Something went wrong"
+      redirect_to @booking
+    end
+  end
 
   private
 
