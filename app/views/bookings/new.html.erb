@@ -1,6 +1,2 @@
-<%= simple_form_for [@offer,@booking] do |f| %>
-  <%= f.input :date_start %>
-  <%= f.input :date_end %>
-  <%= f.input :special_request, label: 'Add a comment' %>
-  <%= f.submit 'Book!' %>
-<% end %>
+<h1>New Booking</h1>
+<%= render 'form' %>
