@@ -3,3 +3,4 @@
 from <%= @booking.date_start %> to <%= @booking.date_end %></p>
 <p>You asked "<%= @booking.special_request %>"</p>
 <%= link_to 'See others offers', offers_path %>
+<%= link_to 'Alter this booking',  edit_offer_booking_path(@booking.offer, @booking) %>
