@@ -1,0 +1,7 @@
+
+<h1><%= @offer.city %></h1>
+<p><%= @offer.description %></p>
+
+
+<%= link_to 'Book', '#' %>
+<%= link_to 'Delete offer', offer_path(@offer.id), method: :delete, data: { confirm: "Are you sure?" } %>
