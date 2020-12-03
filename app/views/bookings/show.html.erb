@@ -1,0 +1,5 @@
+<h1>Trip to <%= @booking.offer.city %>!!</h1>
+<p>Guide <strong><%= @booking.offer.user.email %></strong> will be with you
+from <%= @booking.date_start %> to <%= @booking.date_end %></p>
+<p>You asked "<%= @booking.special_request %>"</p>
+<%= link_to 'See others offers', offers_path %>
