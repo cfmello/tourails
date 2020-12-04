@@ -1,0 +1,6 @@
+<h3>Editando sua oferta para <%= @offer.city %></h3>
+<%= simple_form_for(@offer) do |f| %>
+  <%= f.input :description, label: 'Deixe a sua descrição ainda mais atrativa' %>
+  <%= f.input :active, label: "#{@offer.active? ? 'Desativar' : 'Reativar'} oferta" %>
+  <%= f.submit class: "btn btn-primary", value: 'Atualizar'%>
+<% end %>
