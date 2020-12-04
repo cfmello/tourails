@@ -4,4 +4,5 @@
 
 
 <%= link_to 'Agendar', new_offer_booking_path(@offer) %>
+<%= link_to 'Alterar oferta', edit_offer_path(@offer) %>
 <%= link_to 'Excluir oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
