@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # add athentication layer
 gem 'devise'
+
+# Add Select2 functionality
+gem "select2-rails"
