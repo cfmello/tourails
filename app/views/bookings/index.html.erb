@@ -1,4 +1,4 @@
-<h1>Seus Agendamentos como turista</h1>
+<h1>Seus agendamentos como turista</h1>
 <div class="container row mb-3">
   <div class="col-6">
     <h2>Próximos</h2>
@@ -17,10 +17,10 @@
           <%= book.offer.description %>
         </p>
         <p>
-          <%= link_to 'Alter this booking',  edit_offer_booking_path(book.offer, book) %>
-          <%= link_to 'Give up',  booking_path(book),
+          <%= link_to 'Alterar um agendamento',  edit_offer_booking_path(book.offer, book) %>
+          <%= link_to 'Desistir de um agendamento',  booking_path(book),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'Está certo disto?' } %>
         </p>
       </div>
     <% end %>
