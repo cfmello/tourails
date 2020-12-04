@@ -1,9 +1,16 @@
 class BookingsController < ApplicationController
-  before_action :fetch_offer, except: %i[show destroy]
+  before_action :fetch_offer, except: %i[show destroy index]
 
-  # def index
-  #   @booking = Booking.where(user: current_user).order(:date_start, :asc)
-  # end
+  def index
+    bookings = Booking.where(user: current_user, deleted: false).order(:date_start)
+    @bookings_next = []
+    @bookings_gone = []
+    bookings.each do |book|
+      book.date_start > Time.now ? @bookings_next << book : @bookings_gone << book
+    end
+    # @bookings_next.sort_by!(&:date_start)
+    # @bookings_gone.sort_by!(&:date_start)
+  end
 
   def new
     @booking = Booking.new
