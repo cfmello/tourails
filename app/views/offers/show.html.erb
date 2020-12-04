@@ -3,12 +3,16 @@
 <p><%= @offer.description %></p>
 
 <% if @offer.user == current_user %>
-  <%= link_to 'Alterar oferta', edit_offer_path(@offer) %>
+  <%= link_to 'Alterar oferta', edit_offer_path(@offer), class: 'btn btn-warning' %>
   <% if @offer.active %>
-    <%= link_to 'Desativar oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
+    <%= link_to 'Desativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
   <% else %>
     <%= link_to 'Ativar oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
   <% end %>
 <% else %>
   <%= link_to 'Agendar', new_offer_booking_path(@offer) %>
 <% end %>
+<<<<<<< HEAD
+<%= link_to 'Agendar', new_offer_booking_path(@offer), class: 'btn btn-warning' %>
+=======
+>>>>>>> 858aa71569851ba32f6913351a4f312502f65813
