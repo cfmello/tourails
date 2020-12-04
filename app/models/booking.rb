@@ -1,11 +1,11 @@
 class BookingValidator < ActiveModel::Validator
   def validate(record)
     if record.offer && record.user == record.offer.user
-      record.errors[:offer] << "Can't be user and guide simultaneously"
+      record.errors[:special_request] << "Este serviço é ofertado por você"
     elsif record.date_start && record.date_start < Time.now
-      record.errors[:date_start] << "Start day must be in the future"
+      record.errors[:date_start] << "Tente usar uma data futura"
     elsif record.date_end && record.date_end < record.date_start
-      record.errors[:date_end] << "End day must be greater then start day"
+      record.errors[:date_end] << "Use uma data posterior a data de início"
     end
   end
 end
