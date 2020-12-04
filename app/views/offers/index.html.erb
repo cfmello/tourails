@@ -3,7 +3,7 @@
 <h3>Ofertas disponíveis</h3>
 <ul>
   <% @offers.each do |offer| %>
-    <li><%= link_to offer.city, offer_path(offer) %></li>
+    <li><%= link_to offer.city, offer_path(offer), class: 'btn btn-primary btn-sm' %></li>
   <% end %>
 </ul>
 
@@ -18,4 +18,4 @@
   <% end %>
 </ul>
 
-<%= link_to 'Criar oferta de guia', new_offer_path %>
+<%= link_to 'Criar oferta de guia', new_offer_path, class: 'btn btn-warning' %>
