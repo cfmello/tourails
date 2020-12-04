@@ -1,6 +1,6 @@
 <%= simple_form_for [@offer,@booking] do |f| %>
-  <%= f.input :date_start %>
-  <%= f.input :date_end %>
-  <%= f.input :special_request, label: 'Add a comment' %>
-  <%= f.submit 'Book!' %>
+  <%= f.input :date_start, label: 'Data de início' %>
+  <%= f.input :date_end, label: 'Data final' %>
+  <%= f.input :special_request, label: 'Deixe um comentário, solicitação ou sugestão para o seu guia' %>
+  <%= f.submit 'Agendar!' %>
 <% end %>
