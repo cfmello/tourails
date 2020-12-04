@@ -1,7 +1,7 @@
-<h1>Create an offert!</h1>
+<h1>Crie aqui sua oferta para ser um guia!</h1>
 
 <%= simple_form_for @offer do |f| %>
-  <%= f.input :city %>
-  <%= f.input :description %>
-  <%= f.submit class: "btn btn-primary"%>
+  <%= f.input :city, label: 'Insira aqui a cidade a ser guiada:' %>
+  <%= f.input :description, label: 'Agora insira uma descrição bem maneira para atrair seus futuros clientes:' %>
+  <%= f.submit class: "btn btn-primary", value: 'Manda a ver!'%>
 <% end %>
