@@ -2,6 +2,12 @@
 <h1><%= @offer.city %></h1>
 <p><%= @offer.description %></p>
 
-
+<% if @offer.user == current_user %>
+  <%= link_to 'Alterar oferta', edit_offer_path(@offer) %>
+  <% if @offer.active %>
+    <%= link_to 'Desativar oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
+  <% else %>
+    <%= link_to 'Ativar oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
+  <% end %>
+<% end %>
 <%= link_to 'Agendar', new_offer_booking_path(@offer) %>
-<%= link_to 'Excluir oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
