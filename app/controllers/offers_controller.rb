@@ -24,8 +24,10 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
     if @offer.save
+      flash[:notice] = "Muito bom. Oferta criada!"
       redirect_to offers_path
     else
+      flash[:alert] = "<p>#{@offer.errors.messages.values.join('</p><p>')}</p>".html_safe
       render :new
     end
   end
