@@ -1,11 +1,11 @@
 <%= render 'shared/search' %>
 
-<div class="card">
+<div class="card mt-3">
   <ul class="list-group list-group-flush">
     <% @results.each do |result| %>
-      <li class="list-group-item d-flex">
+      <li class="list-group-item d-flex align-items-center">
         <%= link_to '<i class="fas fa-calendar-alt"></i> Book!'.html_safe,
-                    new_offer_booking_path(result),
+                    offer_path(result),
                     class: 'btn btn-primary' %>
         <div class="ml-5">
           <h5 class="card-title">
