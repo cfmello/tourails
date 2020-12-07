@@ -1,21 +1,30 @@
 <h1>Localidades com ofertas turísticas</h1>
-
-<h3>Ofertas disponíveis</h3>
-<ul>
-  <% @offers.each do |offer| %>
-    <li><%= link_to offer.city, offer_path(offer), class: 'btn btn-warning btn-sm' %></li>
-  <% end %>
-</ul>
-
-<h3>Minhas ofertas</h3>
-<ul>
-  <% @myoffers.each do |myoffer| %>
-    <% if myoffer.active %>
-      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-warning btn-sm' %></li>
-    <% else %>
-      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-warning btn-sm' %> INATIVA</li>
-    <% end %>
-  <% end %>
-</ul>
-
-<%= link_to 'Criar oferta de guia', new_offer_path, class: 'btn btn-warning' %>
+<%= link_to 'Criar oferta como guia', new_offer_path, class: 'btn btn-warning' %>
+<div class="row">
+  <div class="col-12 col-md-6">
+    <h3>Ofertas disponíveis</h3>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <% @offers.each do |offer| %>
+          <li class="list-group-item"><%= link_to offer.city, offer_path(offer), class: 'btn btn-link btn-sm' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <h3>Minhas ofertas</h3>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <% @myoffers.each do |myoffer| %>
+          <li class="list-group-item <%= myoffer.active? ? '' : 'text-muted' %>">
+            <p>
+              <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_offer_path(myoffer), class: 'btn btn-info' %>
+              <%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-link btn-sm' %>
+            </p>
+            <p><%= myoffer.bookings.count %> agendamento<%= 's' if myoffer.bookings.count > 1 %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
