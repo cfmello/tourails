@@ -1,9 +1,9 @@
-<h1>Trip to <%= @booking.offer.city %>!!</h1>
-<p>Guide <strong><%= @booking.offer.user.email %></strong> will be with you
-from <%= @booking.date_start %> to <%= @booking.date_end %></p>
-<p>You asked "<%= @booking.special_request %>"</p>
-<%= link_to 'See others offers', offers_path %>
-<%= link_to 'Alter this booking',  edit_offer_booking_path(@booking.offer, @booking) %>
-<%= link_to 'Give up',  booking_path(@booking),
+<h1>Viagem para <%= @booking.offer.city %> se aproximando!!!</h1>
+<p>O guia <strong><%= @booking.offer.user.email %></strong> estará com você
+nos dias <%= @booking.date_start %> até <%= @booking.date_end %></p>
+<p>Você comentou/solicitou o seguinte: <strong> "<%= @booking.special_request %></strong>"</p>
+<%= link_to 'Veja outras ofertas de viagem', offers_path, class: 'btn btn-warning' %>
+<%= link_to 'Altere este agendamento',  edit_offer_booking_path(@booking.offer, @booking), class: 'btn btn-warning' %>
+<%= link_to 'Cancelar um agendamento',  booking_path(@booking),
     method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+    data: { confirm: 'Você está certo disto?' }, class: 'btn btn-warning' %>

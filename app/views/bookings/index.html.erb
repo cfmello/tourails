@@ -1,0 +1,47 @@
+<h1>Seus agendamentos como turista</h1>
+<div class="container row mb-3">
+  <div class="col-6">
+    <h2>Próximos</h2>
+    <% @bookings_next.each do |book| %>
+      <div class="card card-body">
+        <h3 class="card-title">
+          <%= book.offer.city %>
+        </h3>
+        <h4 class="card-subtitle">
+          De <%= book.date_start %> até <%= book.date_end %>
+        </h4>
+        <p class="card-text">
+          Seu guia será <%= book.offer.user.first_name || book.offer.user.email %>
+        </p>
+        <p class="card-text">
+          <%= book.offer.description %>
+        </p>
+        <p>
+          <%= link_to 'Alterar um agendamento',  edit_offer_booking_path(book.offer, book) %>
+          <%= link_to 'Desistir de um agendamento',  booking_path(book),
+              method: :delete,
+              data: { confirm: 'Está certo disto?' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <h2>Concluídos</h2>
+    <% @bookings_gone.each do |book| %>
+      <div class="card card-body">
+        <h3 class="card-title">
+          <%= book.offer.city %>
+        </h3>
+        <h4 class="card-subtitle">
+          De <%= book.date_start %> até <%= book.date_end %>
+        </h4>
+        <p class="card-text">
+          Seu guia foi <%= book.offer.user.first_name %>
+        </p>
+        <p class="card-text">
+          <%= book.offer.description %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

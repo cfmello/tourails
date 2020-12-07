@@ -1,9 +1,16 @@
 class BookingsController < ApplicationController
-  before_action :fetch_offer, except: %i[show destroy]
+  before_action :fetch_offer, except: %i[show destroy index]
 
-  # def index
-  #   @booking = Booking.where(user: current_user).order(:date_start, :asc)
-  # end
+  def index
+    bookings = Booking.where(user: current_user, deleted: false).order(:date_start)
+    @bookings_next = []
+    @bookings_gone = []
+    bookings.each do |book|
+      book.date_start > Time.now ? @bookings_next << book : @bookings_gone << book
+    end
+    # @bookings_next.sort_by!(&:date_start)
+    # @bookings_gone.sort_by!(&:date_start)
+  end
 
   def new
     @booking = Booking.new
@@ -18,10 +25,10 @@ class BookingsController < ApplicationController
     @booking.offer = Offer.find(params[:offer_id])
     @booking.user = current_user
     if @booking.save
-      flash[:success] = "Booking successfully created"
+      flash[:notice] = "Tudo Certo!"
       redirect_to @booking
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "<p>#{@booking.errors.messages.values.join('</p><p>')}</p>".html_safe
       render 'new'
     end
   end
@@ -29,10 +36,10 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update_attributes(booking_params)
-      flash[:success] = "Booking was successfully updated"
+      flash[:notice] = "Tudo Certo!"
       redirect_to @booking
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "<p>#{@booking.errors.messages.values.join('</p><p>')}</p>".html_safe
       render 'edit'
     end
   end
@@ -45,10 +52,10 @@ class BookingsController < ApplicationController
     booking = Booking.find(params[:id])
     booking.deleted = true
     if booking.save
-      flash[:success] = "Booking was successfully updated"
+      flash[:notice] = "Que pena! Veja outras ofertas"
       redirect_to offers_path
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "<p>#{@booking.errors.messages.values.join('</p><p>')}</p>".html_safe
       redirect_to @booking
     end
   end

@@ -1,9 +1,21 @@
-<h1>Offers</h1>
+<h1>Localidades com ofertas turísticas</h1>
 
+<h3>Ofertas disponíveis</h3>
 <ul>
   <% @offers.each do |offer| %>
-    <li><%= link_to offer.city, offer_path(offer) %></li>
+    <li><%= link_to offer.city, offer_path(offer), class: 'btn btn-primary btn-sm' %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Create offer', new_offer_path %>
+<h3>Minhas ofertas</h3>
+<ul>
+  <% @myoffers.each do |myoffer| %>
+    <% if myoffer.active %>
+      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-primary btn-sm' %></li>
+    <% else %>
+      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-primary btn-sm' %> INATIVA</li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Criar oferta de guia', new_offer_path, class: 'btn btn-warning' %>
