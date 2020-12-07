@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  # Home page
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Search page
+  get 'search', to: 'pages#search'
   resources :offers do
     resources :bookings, except: %i[show destroy index]
   end
