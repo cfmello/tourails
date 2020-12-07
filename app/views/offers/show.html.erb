@@ -19,13 +19,10 @@
     <% end %>
   <% end %>
   <%= link_to 'Alterar oferta', edit_offer_path(@offer), class: 'btn btn-warning' %>
-  <% if @offer.active %>
-    <%= link_to 'Desativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
-  <% else %>
-    <%= link_to 'Ativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
-  <% end %>
+  <%= link_to "#{@offer.active? ? 'Destivar' : 'Ativar'} oferta", offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
 
 <%# Mostrar formulário de agendamento para o turista %>
 <% else %>
   <%= render 'bookings/form' %>
 <% end %>
+<%= link_to 'Voltar', search_path, class: 'btn btn-secondary' %>
