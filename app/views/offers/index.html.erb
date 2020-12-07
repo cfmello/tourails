@@ -6,7 +6,14 @@
     <div class="card">
       <ul class="list-group list-group-flush">
         <% @offers.each do |offer| %>
-          <li class="list-group-item"><%= link_to offer.city, offer_path(offer), class: 'btn btn-link btn-sm' %></li>
+          <li class="list-group-item">
+            <p>
+              <%= link_to '<i class="fas fa-calendar-alt"></i> Book!'.html_safe,
+                    offer_path(offer),
+                    class: 'btn btn-primary' %>
+              <%= link_to offer.city, offer_path(offer), class: 'btn btn-link btn-sm' %>
+            </p>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -18,7 +25,7 @@
         <% @myoffers.each do |myoffer| %>
           <li class="list-group-item <%= myoffer.active? ? '' : 'text-muted' %>">
             <p>
-              <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_offer_path(myoffer), class: 'btn btn-info' %>
+              <%= link_to '<i class="fas fa-pencil-alt"></i> Editar'.html_safe, edit_offer_path(myoffer), class: 'btn btn-info' %>
               <%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-link btn-sm' %>
             </p>
             <p><%= myoffer.bookings.count %> agendamento<%= 's' if myoffer.bookings.count > 1 %></p>
