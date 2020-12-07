@@ -16,7 +16,7 @@
       <% @today.each do |booking| %>
         <div class="card card-body">
           <p class='card-text'>
-            Até <%= booking.date_end %> 
+            Até <%= booking.date_end.to_formatted_s(:rfc822) %> 
             com <%= booking.user.first_name%> 
             Tel: <%= booking.user.phone_number %>
           </p>
@@ -29,8 +29,8 @@
       <% @next.each do |booking| %>
         <div class="card card-body">
           <p class='card-text'>
-            De <%= booking.date_start %> 
-            Até <%= booking.date_end %> 
+            De <%= booking.date_start.to_formatted_s(:rfc822) %> 
+            Até <%= booking.date_end.to_formatted_s(:rfc822) %> 
             com <%= booking.user.first_name%> 
             Tel: <%= booking.user.phone_number %>
           </p>
