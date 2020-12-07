@@ -18,7 +18,10 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @booking = Booking.new
-    @bookings = @offer.bookings
+    bookings = @offer.bookings.where(deleted: false).order(:date_start)
+    agora = Time.now
+    @today = bookings.select { |book| book.date_start <= agora && book.date_end >= agora }
+    @next = bookings.select { |book| book.date_start > agora }
   end
 
   def new
