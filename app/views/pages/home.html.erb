@@ -1,10 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563528316960-2bfa3fcc7f7b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=966&q=80);">
+
   <div class="container">
     <h1> Bem-vindos ao Tourails!</h1>
+
     <h2>Compartilhe experiências com os guias locais!</h2>
     <p> Você também pode ser um anfitrião!</p>
-  <%= link_to "Agende agora", offers_path, class: "btn btn-info" %>
-  <%= link_to "Crie sua oferta", new_offer_path, class: "btn btn-info" %>
-
+    <%= link_to "Agende agora", offers_path, class: "btn btn-info" %>
+    <%= link_to "Crie sua oferta", new_offer_path, class: "btn btn-info" %>
+    <hr>
+    <%= render 'shared/search' %>
   </div>
 </div>
