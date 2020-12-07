@@ -25,8 +25,7 @@
     <%= link_to 'Ativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
   <% end %>
 
-<%# Mostrar botão para o turista %>
+<%# Mostrar formulário de agendamento para o turista %>
 <% else %>
   <%= render 'bookings/form' %>
-  <%= link_to 'Agendar', new_offer_booking_path(@offer), class: 'btn btn-warning' %>
 <% end %>

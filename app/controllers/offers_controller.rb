@@ -18,7 +18,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @booking = Booking.new
-    @bookings = fetch_bookings
+    @bookings = @offer.bookings
   end
 
   def new
@@ -75,9 +75,5 @@ class OffersController < ApplicationController
 
   def update_params
     params.require(:offer).permit(:description, :active)
-  end
-
-  def fetch_bookings
-    @bookings = Booking.where(offer_id: params[:id])
   end
 end
