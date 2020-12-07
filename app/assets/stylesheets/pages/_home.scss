@@ -1,8 +1,15 @@
 // Specific CSS for your home-page
 body {
-    background-color: rgb(224, 236, 245);
-     }
+  background-color: rgb(224, 236, 245);
+}
 
-#homepage {
-    text-shadow: 1px 1px hsla(0, 0%, 0%, 0.397);
-     }
+footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
