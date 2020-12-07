@@ -69,3 +69,6 @@ gem "select2-rails"
 
 # PGsearch
 gem 'pg_search', '~> 2.3.0'
+
+# Claudinary - dynamic image storage
+gem 'dotenv-rails', groups: [:development, :test]
