@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editar <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -13,10 +13,10 @@
     <%= f.input :password,
                 hint: "Deixe em branco se não deseja alterar",
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "Nova senha" } %>
     <%= f.input :password_confirmation,
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "Confirmação" } %>
     <%= f.input :current_password,
                 hint: "Precisamos de sua senha atual para confirmar as alterações",
                 required: true,
