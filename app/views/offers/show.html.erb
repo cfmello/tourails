@@ -27,5 +27,6 @@
 
 <%# Mostrar botão para o turista %>
 <% else %>
+  <%= render 'bookings/form' %>
   <%= link_to 'Agendar', new_offer_booking_path(@offer), class: 'btn btn-warning' %>
 <% end %>

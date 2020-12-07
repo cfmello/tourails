@@ -66,3 +66,6 @@ gem 'devise'
 
 # Add Select2 functionality
 gem "select2-rails"
+
+# PGsearch
+gem 'pg_search', '~> 2.3.0'
