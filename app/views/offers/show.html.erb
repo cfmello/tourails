@@ -15,13 +15,14 @@
       <h3><%= booking.date_start %></h3>
       <span>Até <%= booking.date_end %> com <%= booking.user.first_name%> Tel: <%= booking.user.phone_number %></span>
       <p>Detalhes: <%= booking.special_request %></p><br>
+      
     <% end %>
   <% end %>
   <%= link_to 'Alterar oferta', edit_offer_path(@offer), class: 'btn btn-warning' %>
   <% if @offer.active %>
     <%= link_to 'Desativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
   <% else %>
-    <%= link_to 'Ativar oferta', offer_path(@offer.id), method: :delete, data: { confirm: "Está certo disto?" } %>
+    <%= link_to 'Ativar oferta', offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
   <% end %>
 
 <%# Mostrar botão para o turista %>
