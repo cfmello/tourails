@@ -2,29 +2,43 @@
 <p><%= @offer.description %></p>
 <%= link_to 'Voltar', search_path, class: 'btn btn-secondary' %>
 <% if @offer.user == current_user %>
+  <%= link_to 'Alterar oferta', edit_offer_path(@offer), class: 'btn btn-warning' %>
+  <%= link_to "#{@offer.active? ? 'Destivar' : 'Ativar'} oferta",
+              offer_path(@offer.id),
+              class: 'btn btn-warning',
+              method: :delete,
+              data: { confirm: "Está certo disto?" } %>
   <%# Mostra agendamendos da oferta %>
   <h2>Agendamentos</h2>
-  <h3>Hoje!!</h3>
-  <% @today.each do |booking| %>
-    <div class="card card-body">
-      <p class='card-text'>
-        Até <%= booking.date_end %> com <%= booking.user.first_name%> Tel: <%= booking.user.phone_number %>
-      </p>
-      <p class='card-text'>Detalhes: <%= booking.special_request %></p>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3>Hoje!!</h3>
+      <% @today.each do |booking| %>
+        <div class="card card-body">
+          <p class='card-text'>
+            Até <%= booking.date_end %> 
+            com <%= booking.user.first_name%> 
+            Tel: <%= booking.user.phone_number %>
+          </p>
+          <p class='card-text'>Detalhes: <%= booking.special_request %></p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <h3>Próximos</h3>
-  <% @next.each do |booking| %>
-    <div class="card card-body">
-      <p class='card-text'>
-        De <%= booking.date_start %> Até <%= booking.date_end %> com <%= booking.user.first_name%> Tel: <%= booking.user.phone_number %>
-      </p>
-      <p class='card-text'>Detalhes: <%= booking.special_request %></p>
+    <div class="col-12 col-md-6">
+      <h3>Próximos</h3>
+      <% @next.each do |booking| %>
+        <div class="card card-body">
+          <p class='card-text'>
+            De <%= booking.date_start %> 
+            Até <%= booking.date_end %> 
+            com <%= booking.user.first_name%> 
+            Tel: <%= booking.user.phone_number %>
+          </p>
+          <p class='card-text'>Detalhes: <%= booking.special_request %></p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <%= link_to 'Alterar oferta', edit_offer_path(@offer), class: 'btn btn-warning' %>
-  <%= link_to "#{@offer.active? ? 'Destivar' : 'Ativar'} oferta", offer_path(@offer.id), class: 'btn btn-warning', method: :delete, data: { confirm: "Está certo disto?" } %>
-
+  </div>
 <%# Mostrar formulário de agendamento para o turista %>
 <% else %>
   <%= render 'bookings/form' %>
