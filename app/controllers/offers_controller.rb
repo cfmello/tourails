@@ -18,7 +18,10 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @booking = Booking.new
-    @bookings = fetch_bookings
+    bookings = @offer.bookings.where(deleted: false).order(:date_start)
+    agora = Time.now
+    @today = bookings.select { |book| book.date_start <= agora && book.date_end >= agora }
+    @next = bookings.select { |book| book.date_start > agora }
   end
 
   def new
@@ -75,9 +78,5 @@ class OffersController < ApplicationController
 
   def update_params
     params.require(:offer).permit(:description, :active)
-  end
-
-  def fetch_bookings
-    @bookings = Booking.where(offer_id: params[:id])
   end
 end
