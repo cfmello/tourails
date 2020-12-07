@@ -38,6 +38,11 @@
                 required: true,
                 label: "Confirme sua senha",
                 input_html: { autocomplete: "Confirmação" } %>
+    <%= f.input :photo,
+                as: :file,
+                required: true,
+                autofocus: true,
+                label: "Escolha sua foto para o perfil" %>
   </div>
 
   <div class="form-actions">

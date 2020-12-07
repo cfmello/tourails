@@ -20,7 +20,13 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         <%# </li> %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/milenavalle", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag "no-avatar_oemeu2", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Ação", "#", class: "dropdown-item" %>
             <%= link_to "Outra ação", "#", class: "dropdown-item" %>
