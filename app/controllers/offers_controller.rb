@@ -27,7 +27,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @cities = JSON.parse(open('https://servicodados.ibge.gov.br/api/v1/localidades/municipios').read)
-                  .map { |item| item['nome'] }
+                  .map { |item| "#{item['microrregiao']['mesorregiao']['UF']['sigla']} - #{item['nome']}" }
     # raise
   end
 
