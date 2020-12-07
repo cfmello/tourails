@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class OffersController < ApplicationController
   def index
     @offers = []
@@ -19,6 +22,9 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    @cities = JSON.parse(open('https://servicodados.ibge.gov.br/api/v1/localidades/municipios').read)
+                  .map { |item| item['nome'] }
+    # raise
   end
 
   def create
