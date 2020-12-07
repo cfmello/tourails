@@ -69,3 +69,9 @@ gem "select2-rails"
 
 # PGsearch
 gem 'pg_search', '~> 2.3.0'
+
+# Claudinary - dynamic image storage
+gem 'cloudinary', '~> 1.16.0'
+
+# DotEnv - armazenamento local de chaves de acesso  / nao envia pro github
+gem 'dotenv-rails', groups: [:development, :test]

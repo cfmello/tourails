@@ -11,22 +11,18 @@
                 input_html: { autocomplete: "Nome" }%>
     <%= f.input :last_name,
                 required: true,
-                autofocus: true,
                 label: "Sobrenome",
                 input_html: { autocomplete: "Sobrenome" }%>
     <%= f.input :email,
                 required: true,
-                autofocus: true,
                 label: "E-mail",
                 input_html: { autocomplete: "E-mail" }%>
     <%= f.input :cpf,
                 required: true,
-                autofocus: true,
                 label: "CPF",
                 input_html: { autocomplete: "CPF" }%>
     <%= f.input :phone_number,
                 required: true,
-                autofocus: true,
                 label: "Número de telefone",
                 input_html: { autocomplete: "Telefone" }%>
     <%= f.input :password,
@@ -38,6 +34,10 @@
                 required: true,
                 label: "Confirme sua senha",
                 input_html: { autocomplete: "Confirmação" } %>
+    <%= f.input :photo,
+                as: :file,
+                required: true,
+                label: "Escolha sua foto para o perfil" %>
   </div>
 
   <div class="form-actions">
