@@ -3,7 +3,7 @@
 <h3>Ofertas disponíveis</h3>
 <ul>
   <% @offers.each do |offer| %>
-    <li><%= link_to offer.city, offer_path(offer), class: 'btn btn-primary btn-sm' %></li>
+    <li><%= link_to offer.city, offer_path(offer), class: 'btn btn-warning btn-sm' %></li>
   <% end %>
 </ul>
 
@@ -11,9 +11,9 @@
 <ul>
   <% @myoffers.each do |myoffer| %>
     <% if myoffer.active %>
-      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-primary btn-sm' %></li>
+      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-warning btn-sm' %></li>
     <% else %>
-      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-primary btn-sm' %> INATIVA</li>
+      <li><%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-warning btn-sm' %> INATIVA</li>
     <% end %>
   <% end %>
 </ul>
