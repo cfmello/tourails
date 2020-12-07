@@ -36,7 +36,7 @@
           De <%= book.date_start %> até <%= book.date_end %>
         </h4>
         <p class="card-text">
-          Seu guia foi <%= book.offer.user.first_name %>
+          Seu guia foi <%= book.offer.user.first_name || book.offer.user.email %>
         </p>
         <p class="card-text">
           <%= book.offer.description %>
