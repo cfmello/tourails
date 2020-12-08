@@ -1,5 +1,6 @@
 <h1>Viagem para <%= @booking.offer.city %> se aproximando!!!</h1>
-<p>O guia <strong><%= @booking.offer.user.email %></strong> estará com você
+
+<p>O guia <strong><%= @booking.offer.user.first_name || @booking.offer.user.email %></strong> estará com você
 nos dias <%= @booking.date_start %> até <%= @booking.date_end %></p>
 <p>Você comentou/solicitou o seguinte: <strong> "<%= @booking.special_request %></strong>"</p>
 <%= link_to 'Veja outras ofertas de viagem', offers_path, class: 'btn btn-warning' %>

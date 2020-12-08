@@ -21,20 +21,21 @@
     <h3>Minhas ofertas</h3>
     <div class="card">
       <ul class="list-group list-group-flush">
-        <% if @myoffers.count > 0 %>
-          <% @myoffers.each do |myoffer| %>
-            <li class="list-group-item <%= myoffer.active? ? '' : 'text-muted' %>">
-              <p>
-                <%= link_to '<i class="fas fa-pencil-alt"></i> Editar'.html_safe, edit_offer_path(myoffer), class: 'btn btn-info' %>
-                <%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-link btn-sm' %>
-              </p>
-              <p><%= myoffer.bookings.count %> agendamento<%= 's' if myoffer.bookings.count > 1 %></p>
-            </li>
-          <% end %>
-        <% else %>
-          <li class="list-group-item">
+        <%# card fixo para criar oferta %>
+        <li class="list-group-item">
+          <% unless @myoffers.count.positive? %>
             <p>Você ainda não criou uma oferta.</p>
-            <p> <%= link_to 'Criar oferta como guia', new_offer_path, class: 'btn btn-warning' %></p>
+          <% end %>
+          <p> <%= link_to 'Criar oferta como guia', new_offer_path, class: 'btn btn-warning' %></p>
+        </li>
+        <%# cards com ofertas %>
+        <% @myoffers.each do |myoffer| %>
+          <li class="list-group-item <%= myoffer.active? ? '' : 'text-muted' %>">
+            <p>
+              <%= link_to '<i class="fas fa-pencil-alt"></i> Editar'.html_safe, edit_offer_path(myoffer), class: 'btn btn-info' %>
+              <%= link_to myoffer.city, offer_path(myoffer), class: 'btn btn-link btn-sm' %>
+            </p>
+            <p><%= myoffer.bookings.count %> agendamento<%= 's' unless myoffer.bookings.count == 1 %></p>
           </li>
         <% end %>
       </ul>
