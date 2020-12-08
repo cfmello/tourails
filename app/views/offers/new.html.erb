@@ -3,5 +3,6 @@
 <%= simple_form_for @offer do |f| %>
   <%= f.input :city, label: 'Insira aqui a cidade a ser guiada:', collection: @cities %>
   <%= f.input :description, label: 'Agora insira uma descrição bem maneira para atrair seus futuros clientes:' %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit class: "btn btn-warning", value: 'Manda a ver!'%>
 <% end %>
