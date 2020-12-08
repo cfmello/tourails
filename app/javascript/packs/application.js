@@ -27,8 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initSelect2 } from '../plugins/select2';
+import { initCheck } from '../components/checkbox'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
+  initCheck();
 });
