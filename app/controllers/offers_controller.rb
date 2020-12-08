@@ -50,10 +50,10 @@ class OffersController < ApplicationController
   def update
     @offer = Offer.find(params[:id])
     if @offer.update_attributes(update_params)
-      flash[:notice] = "Offer was successfully updated"
+      flash[:notice] = "Excelente!!"
       redirect_to @offer
     else
-      flash[:alert] = "Something went wrong"
+      flash[:alert] = "<p>#{@offer.errors.messages.values.join('</p><p>')}</p>".html_safe
       render 'edit'
     end
   end
