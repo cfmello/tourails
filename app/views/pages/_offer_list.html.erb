@@ -4,7 +4,8 @@
       <li class="list-group-item d-flex align-items-center">
         <%= link_to '<i class="fas fa-calendar-alt"></i> Agendar!'.html_safe,
                     offer_path(result),
-                    class: 'btn btn-primary' %>
+                    class: 'btn btn-primary', 
+                    style: 'min-width: 120px' %>
         <div class="ml-5">
           <h5 class="card-title">
             <%= result.city %>
