@@ -7,7 +7,7 @@
         <% @offers.each do |offer| %>
           <li class="list-group-item">
             <p>
-              <%= link_to '<i class="fas fa-calendar-alt"></i> Book!'.html_safe,
+              <%= link_to '<i class="fas fa-calendar-alt"></i> Agende!'.html_safe,
                     offer_path(offer),
                     class: 'btn btn-primary' %>
               <%= link_to offer.city, offer_path(offer), class: 'btn btn-link btn-sm' %>
