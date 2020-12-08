@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
       redirect_to @booking
     else
       flash[:alert] = "<p>#{@booking.errors.messages.values.join('</p><p>')}</p>".html_safe
-      render 'new'
+      render 'offers/show'
     end
   end
 
