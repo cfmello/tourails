@@ -73,7 +73,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:city, :description, :active)
+    params.require(:offer).permit(:city, :description, :active, photos: [])
   end
 
   def update_params
